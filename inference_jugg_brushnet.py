@@ -122,6 +122,9 @@ if __name__ == "__main__":
     
     weight_dtype = torch.bfloat16
 
+    base_data_dir = "checkpoint"
+    json_brushnet_data_path = "checkpoint/mapping_file.json"
+
     sdxl_path = "misri/juggernautXL_juggernautX"
     
     brushnet_path = "checkpoint/brushnet/random_mask_brushnet_ckpt_sdxl_v0"
@@ -136,6 +139,7 @@ if __name__ == "__main__":
         torch_dtype=torch.bfloat16,
         low_cpu_mem_usage=False,
     )
+    pipe.set_progress_bar_config(disable=True)
     pipe = pipe.to("cuda")
 
     # read data json
@@ -187,10 +191,8 @@ if __name__ == "__main__":
 
             run_time = time.time() - start_time
             print(f"Finish inpainting within {run_time}")
-
             if it >= 100 and it < 200:
                 speed_list.append(run_time)
-            print(f"Finish inpainting within {run_time}")
     
     mean_runtime = np.mean(speed_list)
     print(f"AVERAGE: ", np.mean(speed_list))

@@ -164,6 +164,7 @@ if __name__ == "__main__":
         torch_dtype=weight_dtype,
         low_cpu_mem_usage=False,
     )
+    pipe.set_progress_bar_config(disable=True)
     pipe = pipe.to(device)
 
     #### Inversion Net ####

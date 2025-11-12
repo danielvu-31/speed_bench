@@ -213,6 +213,7 @@ if __name__ == "__main__":
         "Efficient-Large-Model/Sana_Sprint_0.6B_1024px_diffusers",
         torch_dtype=torch.bfloat16, 
     ).to(device)
+    pipe.set_progress_bar_config(disable=True)
 
     vae = AutoencoderDC.from_pretrained(
         "Efficient-Large-Model/Sana_Sprint_0.6B_1024px_diffusers",

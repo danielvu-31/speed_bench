@@ -231,6 +231,8 @@ if __name__ == "__main__":
         "Efficient-Large-Model/Sana_Sprint_0.6B_1024px_diffusers",
         torch_dtype=torch.bfloat16, 
     ).to(device)
+    pipe.set_progress_bar_config(disable=True)
+
     inverse_transformer = copy.deepcopy(pipe.transformer)
     inverse_transformer = SanaTrigFlow(inverse_transformer, guidance=True).eval()
 
@@ -258,7 +260,7 @@ if __name__ == "__main__":
     except:
         model_file = os.path.join(full_transformer_path, "model.safetensors")
         inverse_transformer.load_state_dict(load_file(model_file), strict=False)
-
+    inverse_transformer = inverse_transformer.to(torch.bfloat16)
 
     fix_timestep = torch.ones((1)) * 0.5
     t = fix_timestep.view(-1, 1, 1, 1).to(device)

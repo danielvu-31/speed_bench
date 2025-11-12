@@ -129,6 +129,7 @@ if __name__ == "__main__":
         "stabilityai/sdxl-turbo", 
         torch_dtype=torch.bfloat16,
     )
+    pipe.set_progress_bar_config(disable=True)
     pipe = pipe.to("cuda")
 
     # read data json
