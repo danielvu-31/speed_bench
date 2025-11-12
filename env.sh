@@ -1,0 +1,13 @@
+conda deactivate;
+conda create -n testsana python=3.10 -y;
+conda activate testsana;
+conda install git-lfs -y;
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121;
+pip install -r requirements_sana.txt;
+conda deactivate;
+conda create -n testbrush python=3.9 -y;
+conda activate testbrush;
+pip install torch==2.5.1 torchvision==0.20.1 torchaudio==2.5.1 --index-url https://download.pytorch.org/whl/cu121;
+pip install -r requirements_sana.txt;
+cp dynamic_modules_utils.py src/diffusers/src/diffusers/utils;
+conda deactivate;
