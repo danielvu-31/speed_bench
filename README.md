@@ -39,6 +39,8 @@ git clone https://huggingface.co/ducvh5/checkpoint
 conda deactivate
 ```
 
+Image Location ZIP: https://drive.google.com/file/d/1rkQgnbRYd0kkRy_q9keqgzlZIDISlpeR/view?usp=sharing
+
 ## 🚀 3. Run Experiments
 Run the following scripts one by one to reproduce benchmark results:
 ```bash
